@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Centre_de_formation.Models.Participant>
+
+@{
+    ViewData["Title"] = "Login Participant To Session";
+}
+
+<h1>Login Participant To Session</h1>
+
+<form asp-action="LoginParticipantToSession">
+    <div class="form-group">
+        <label for="participantId">Participant:</label>
+        <select name="participantId" id="participantId" class="form-control">
+            @foreach (var participant in ViewBag.Participants)
+            {
+                <option value="@participant.Id">@participant.Nom</option>
+            }
+        </select>
+    </div>
+    <input type="hidden" name="sessionId" value="@ViewBag.SessionId" />
+    <div class="form-group">
+        <input type="submit" value="Login" class="btn btn-primary" />
+    </div>
+</form>

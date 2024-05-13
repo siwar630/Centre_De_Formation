@@ -1,0 +1,40 @@
+﻿@model Centre_de_formation.Models.Session
+
+@{
+    ViewData["Title"] = "Participants For Session";
+}
+
+
+<h1 class="text-primary my-5">Liste des Participants</h1>
+
+<h3 class="text-black my-5">Session :  <span class="text-secondary">@Model.Id</span></h3>
+
+
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Telephne</th>
+                <th>Etat de payment</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var participant in Model.Participants)
+            {
+                <tr>
+                    <td>@participant.Nom</td>
+                    <td>@participant.Prenom</td>
+                    <td>@participant.Tel</td>
+                    <td>@(participant.EtatPayment ? "Payée" : "Non Payée")</td>
+                    
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
+<a asp-action="Index" class="btn btn-warning">Retour</a>

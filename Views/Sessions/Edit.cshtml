@@ -1,0 +1,61 @@
+﻿@model Centre_de_formation.Models.Session
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5 border border-success-subtle">
+                <div class="card-header bg-info text-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3 class="mb-0">Modifer la session @Model.Id</h3>
+                        <a class="btn btn-light" asp-action="Index">
+                            <i class="fas fa-arrow-left"></i> Retour
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group my-2">
+                            <label asp-for="FormationId" class="control-label"></label>
+                            <select asp-for="FormationId" class="form-control" asp-items="ViewBag.FormationId"></select>
+                            <span asp-validation-for="FormationId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group my-2">
+                            <label asp-for="dateDebut" class="control-label">Date Debut</label>
+                            <input asp-for="dateDebut" class="form-control" />
+                            <span asp-validation-for="dateDebut" class="text-danger"></span>
+                        </div>
+                        <div class="form-group my-2">
+                            <label asp-for="FormateurId" class="control-label"></label>
+                            <select asp-for="FormateurId" class="form-control" asp-items="ViewBag.FormateurId"></select>
+                            <span asp-validation-for="FormateurId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group my-2">
+                            <label asp-for="duree" class="control-label"></label>
+                            <input asp-for="duree" class="form-control" />
+                            <span asp-validation-for="duree" class="text-danger"></span>
+                        </div>
+                        <div class="form-group my-2">
+                            <label asp-for="SalleId" class="control-label"></label>
+                            <select asp-for="SalleId" class="form-control" asp-items="ViewBag.SalleId"></select>
+                            <span asp-validation-for="SalleId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group text-center my-2 mb-0">
+                            <input type="submit" value="Modifier" class="btn text-white btn-info py-1 mt-3 my-2" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

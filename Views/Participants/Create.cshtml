@@ -1,0 +1,58 @@
+﻿@model Centre_de_formation.Models.Participant
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5 border border-success-subtle">
+                <div class="card-header bg-info text-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3 class="mb-0">Ajouter un Participant</h3>
+                        <a class="btn btn-light" asp-action="Index">
+                            <i class="fas fa-arrow-left"></i> Retour
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group my-2">
+                            <label asp-for="Nom" class="control-label">Nom</label>
+                            <input asp-for="Nom" class="form-control" />
+                            <span asp-validation-for="Nom" class="text-danger"></span>
+                        </div>
+                        <div class="form-group my-2">
+                            <label asp-for="Prenom" class="control-label">Prénom</label>
+                            <input asp-for="Prenom" class="form-control" />
+                            <span asp-validation-for="Prenom" class="text-danger"></span>
+                        </div>
+                        <div class="form-group my-2">
+                            <label asp-for="Tel" class="control-label">Téléphone</label>
+                            <input asp-for="Tel" class="form-control" />
+                            <span asp-validation-for="Tel" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" asp-for="EtatPayment" /> @Html.DisplayNameFor(model => model.EtatPayment)
+                            </label>
+                        </div>
+                        <div class="form-group text-center my-2 mb-0">
+                            <input type="submit" value="Créer" class="btn text-white btn-info py-1 mt-3 my-2" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

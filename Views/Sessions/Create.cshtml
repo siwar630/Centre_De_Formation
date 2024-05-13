@@ -1,0 +1,59 @@
+﻿@model Centre_de_formation.Models.Session
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5 border border-success-subtle">
+                <div class="card-header bg-info text-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3 class="mb-0">Ajouter une session</h3>
+                        <a class="btn btn-light" asp-action="Index">
+                            <i class="fas fa-arrow-left"></i> Retour
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group my-2">                       
+                            <label asp-for="Formation" class="control-label"></label>
+                            <select asp-for="Formation" class="form-control" asp-items="ViewBag.Formation"></select>    
+                        </div>
+                        <div class="form-group my-2">
+                            <label asp-for="dateDebut" class="control-label">Date Debut</label>
+                            <input asp-for="dateDebut" class="form-control" />
+                            <span asp-validation-for="dateDebut" class="text-danger"></span>
+                        </div>
+                        <div class="form-group my-2">
+                            <label asp-for="Formateur" class="control-label"></label>
+                            <select asp-for="Formateur" class="form-control" asp-items="ViewBag.Formateur"></select>
+                        </div>
+                        <div class="form-group my-2">
+                            <label asp-for="duree" class="control-label"></label>
+                            <input asp-for="duree" class="form-control" />
+                            <span asp-validation-for="duree" class="text-danger"></span>
+                        </div>
+                        <div class="form-group my-2">
+                            <label asp-for="Salle" class="control-label"></label>
+                            <select asp-for="Salle" class="form-control" asp-items="ViewBag.Salle"></select>
+                        </div>
+                        <div class="form-group text-center my-2 mb-0">
+                            <input type="submit" value="Créer" class="btn text-white btn-info py-1 mt-3 my-2" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

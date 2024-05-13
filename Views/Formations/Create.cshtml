@@ -1,0 +1,54 @@
+﻿@model Centre_de_formation.Models.Formation
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5 border border-success-subtle">
+                <div class="card-header bg-info text-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3 class="mb-0">Ajouter une Salle</h3>
+                        <a class="btn btn-light" asp-action="Index">
+                            <i class="fas fa-arrow-left"></i> Retour
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group my-2">
+                            <label asp-for="NomFormation" class="control-label">Nom de la Formation</label>
+                            <input asp-for="NomFormation" class="form-control" />
+                            <span asp-validation-for="NomFormation" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="CoursId" class="control-label"></label>
+                            <select asp-for="CoursId" class="form-control" asp-items="ViewBag.CoursList">
+                                <option value="">Select a Cours</option>
+                            </select>
+                            <span asp-validation-for="CoursId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group my-2">
+                            <label asp-for="PrixFormation" class="control-label">Prix</label>
+                            <input asp-for="PrixFormation" class="form-control" />
+                            <span asp-validation-for="PrixFormation" class="text-danger"></span>
+                        </div>
+                        <div class="form-group text-center my-2 mb-0">
+                            <input type="submit" value="Créer" class="btn text-white btn-info py-1 mt-3 my-2" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

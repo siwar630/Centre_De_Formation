@@ -1,0 +1,48 @@
+﻿@model Centre_de_formation.Models.Cours
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<div class="container ">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="card mt-5 border border-success-subtle">
+                <div class="card-header bg-danger text-white">
+
+                    <h3 class="mb-0">Etes vous sur de vouloir supprimer ce cours ?</h3>
+
+
+
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">
+                            Nom du cours
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Html.DisplayFor(model => model.NomCours)
+                        </dd>
+                        
+                    </dl>
+                    <div class="d-flex justify-content-start gap-3 align-items-center">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <a class="btn btn-outline-success" asp-action="Index">
+                                <i class="fas fa-arrow-left"></i> Retour
+                            </a>
+                        </div>
+                        <form asp-action="Delete">
+                            <input type="hidden" asp-for="Id" />
+                            <input type="submit" value="Oui" class="btn btn-outline-danger" />
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
